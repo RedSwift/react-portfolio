@@ -1,9 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import injectTapEventPlugin from 'react-tap-event-plugin'
+injectTapEventPlugin()
+
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 export default class App extends Component {
-  render() {
+  render () {
     return (
-      <div>React simple starter</div>
-    );
+      <MuiThemeProvider>
+        {this.props.children}
+      </MuiThemeProvider>
+    )
   }
 }
