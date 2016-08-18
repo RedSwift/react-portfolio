@@ -1,3 +1,31 @@
-.my-name {
+body {
   font-family: Roboto;
+  background-color: #008FA1;
+  color: white;
+}
+
+.main-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.my-name {
+  font-size: 40px;
+}
+
+.front-pic {
+  border-radius: 80%
+}
+
+.flex {
+  display: flex
+}
+
+.button-group {
+  text-align: center
+}
+
+.margin-right {
+  margin-right: 10px
 }
