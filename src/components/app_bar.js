@@ -8,6 +8,7 @@ class AppBar extends Component {
     return (
         <MaterialAppBar
           showMenuIconButton={false}
+          className='flex'
           iconElementRight={
             <div>
               <Link to='/'><FlatButton label='home' /></Link>

@@ -1,4 +1,5 @@
-body {
+html, body {
+  margin: 0;
   font-family: Roboto;
   background-color: #008FA1;
   color: white;
@@ -38,6 +39,14 @@ body {
   margin-top: 40px;
 }
 
+.port-cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 0 50px 0 50px;
+}
+
 .my-name {
   font-size: 40px;
 }
@@ -69,5 +78,9 @@ td {
   }
   .about-pic {
     max-width: 40%
+  }
+  .port-pic {
+    height: 213px;
+    width: 319px;
   }
 }
