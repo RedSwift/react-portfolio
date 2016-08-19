@@ -12,9 +12,9 @@ class Home extends Component {
           <img className='front-pic' src={'http://oi64.tinypic.com/1ta3jn.jpg'} />
           <h3>Singapore Based Web Developer</h3>
           <div className='button-group flex'>
-            <RaisedButton className='margin-right' primary={true} label='Github'/>
-            <RaisedButton className='margin-right' primary={true} label='LinkedIn'/>
-            <RaisedButton primary={true} label='GA Profile'/>
+            <RaisedButton className='margin-right' primary href='https://github.com/redswift' label='Github'/>
+            <RaisedButton className='margin-right' primary href='https://sg.linkedin.com/in/lam-jian-xiong-dominic-4b33b4bb' label='LinkedIn'/>
+            <RaisedButton secondary label='GA Profile'/>
           </div>
         </div>
       </div>

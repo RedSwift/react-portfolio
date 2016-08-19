@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router'
 import MaterialAppBar from 'material-ui/AppBar'
 import FlatButton from 'material-ui/FlatButton'
 
@@ -9,9 +10,9 @@ class AppBar extends Component {
           showMenuIconButton={false}
           iconElementRight={
             <div>
-              <FlatButton label='Portfolio' />
-              <FlatButton label='About Me' />
-              <FlatButton label='Contact' />
+              <Link to='/portfolio'><FlatButton label='Portfolio' /></Link>
+              <Link to='/about'><FlatButton label='About Me' /></Link>
+              <Link to='/contact'><FlatButton label='Contact' /></Link>
             </div>
           }
         />
