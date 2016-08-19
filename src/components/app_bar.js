@@ -10,8 +10,9 @@ class AppBar extends Component {
           showMenuIconButton={false}
           iconElementRight={
             <div>
-              <Link to='/portfolio'><FlatButton label='Portfolio' /></Link>
-              <Link to='/about'><FlatButton label='About Me' /></Link>
+              <Link to='/'><FlatButton label='home' /></Link>
+              <Link to='/work'><FlatButton label='work' /></Link>
+              <Link to='/about'><FlatButton label='About' /></Link>
               <Link to='/contact'><FlatButton label='Contact' /></Link>
             </div>
           }
