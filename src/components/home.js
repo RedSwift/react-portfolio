@@ -13,7 +13,7 @@ class Home extends Component {
           <h3>Singapore Based Web Developer</h3>
           <div className='button-group flex'>
             <RaisedButton className='margin-right' primary href='https://github.com/redswift' label='Github'/>
-            <RaisedButton className='margin-right' primary href='https://sg.linkedin.com/in/lam-jian-xiong-dominic-4b33b4bb' label='LinkedIn'/>
+            <RaisedButton className='margin-right' primary href='https://www.linkedin.com/in/lam-jian-xiong-dominic' label='LinkedIn'/>
             <RaisedButton secondary label='GA Profile'/>
           </div>
         </div>

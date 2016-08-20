@@ -10,7 +10,7 @@ class AppBar extends Component {
           showMenuIconButton={false}
           className='flex'
           iconElementRight={
-            <div>
+            <div className='button-group'>
               <Link to='/'><FlatButton label='home' /></Link>
               <Link to='/work'><FlatButton label='work' /></Link>
               <Link to='/about'><FlatButton label='About' /></Link>

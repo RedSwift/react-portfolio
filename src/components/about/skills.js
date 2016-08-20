@@ -29,7 +29,7 @@ const Skills = () => {
         <td>Angular</td>
         <td>NodeJS</td>
         <td>React</td>
-        <td>RoR</td>
+        <td>Ruby on Rails</td>
       </tr>
 
       <tr>
