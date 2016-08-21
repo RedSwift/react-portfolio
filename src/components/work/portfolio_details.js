@@ -9,7 +9,7 @@ const PortfolioDetails = (props) => {
     <div className='port-cont'>
       <img className='port-pic' src={project.picture} alt='portfolio pic' />
       <div className='margin-left'>
-        <h2>Description</h2>
+        <h2>{project.name}</h2>
         <p>{project.description}</p>
         <Link to={`work/${project._id}`}><RaisedButton primary label='View Project' /></Link>
       </div>

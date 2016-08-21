@@ -3,6 +3,7 @@ import AppBar from '../app_bar'
 import { fetchProject } from '../../actions/index'
 import { connect } from 'react-redux'
 import PortfolioDetails from './portfolio_details'
+import { Divider } from 'material-ui'
 
 class Work extends Component {
   componentWillMount () {
@@ -12,7 +13,9 @@ class Work extends Component {
   renderProjects () {
     return this.props.project.map((project, index) => {
       return (
-        <PortfolioDetails key={index} project={project}/>
+        <div className='work-cont'>
+          <PortfolioDetails key={index} project={project}/>
+        </div>
       )
     })
   }

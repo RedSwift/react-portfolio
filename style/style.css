@@ -20,6 +20,11 @@ html, body {
 
 /* Selectors */
 
+.work-cont {
+  margin: 0 auto;
+  max-width: 50em
+}
+
 .main-cont {
   display: flex;
   flex-direction: column;
@@ -30,6 +35,8 @@ html, body {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin: 0 auto;
+  max-width: 50em;
   margin-top: 20px
 }
 
