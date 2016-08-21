@@ -5,6 +5,7 @@ import { Link } from 'react-router'
 import AppBar from '../app_bar'
 import { RaisedButton } from 'material-ui'
 
+
 class WorkDetails extends Component {
   componentWillMount () {
     this.props.showProject(this.props.params.id)

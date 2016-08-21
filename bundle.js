@@ -67823,6 +67823,13 @@
 	  }, {
 	    key: 'renderProjects',
 	    value: function renderProjects() {
+	      if (!this.props.project) return _react2.default.createElement(
+	        'div',
+	        null,
+	        ' Loading ',
+	        _react2.default.createElement(_materialUi.CircularProgress, { size: 2 }),
+	        ' '
+	      );
 	      return this.props.project.map(function (project, index) {
 	        return _react2.default.createElement(
 	          'div',
