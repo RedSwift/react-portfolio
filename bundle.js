@@ -23892,6 +23892,8 @@
 	  switch (action.type) {
 	    case _index.FETCH_PROJECT:
 	      return _extends({}, state, { all: action.payload.data.reverse() });
+	    case _index.SHOW_PROJECT:
+	      return _extends({}, state, { show: action.payload.data });
 	    default:
 	      return state;
 	  }
@@ -23899,7 +23901,7 @@
 
 	var _index = __webpack_require__(208);
 
-	var INITIAL_STATE = { all: [] };
+	var INITIAL_STATE = { all: [], show: [] };
 
 /***/ },
 /* 208 */
@@ -23910,8 +23912,9 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.FETCH_PROJECT = undefined;
+	exports.SHOW_PROJECT = exports.FETCH_PROJECT = undefined;
 	exports.fetchProject = fetchProject;
+	exports.showProject = showProject;
 
 	var _axios = __webpack_require__(209);
 
@@ -23920,12 +23923,22 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var FETCH_PROJECT = exports.FETCH_PROJECT = 'FETCH_PROJECT';
+	var SHOW_PROJECT = exports.SHOW_PROJECT = 'SHOW_PROJECT';
 
 	function fetchProject() {
 	  var request = _axios2.default.get('http://redswift.herokuapp.com/api/project');
 
 	  return {
 	    type: FETCH_PROJECT,
+	    payload: request
+	  };
+	}
+
+	function showProject(id) {
+	  var request = _axios2.default.get('http://redswift.herokuapp.com/api/project/' + id);
+
+	  return {
+	    type: SHOW_PROJECT,
 	    payload: request
 	  };
 	}
@@ -37858,7 +37871,7 @@
 	            { className: 'my-name' },
 	            'Dominic Lam'
 	          ),
-	          _react2.default.createElement('img', { className: 'front-pic', src: 'http://oi64.tinypic.com/1ta3jn.jpg' }),
+	          _react2.default.createElement('img', { className: 'front-p', src: 'http://oi64.tinypic.com/1ta3jn.jpg' }),
 	          _react2.default.createElement(
 	            'h3',
 	            null,
@@ -37868,7 +37881,7 @@
 	            'div',
 	            { className: 'button-group flex' },
 	            _react2.default.createElement(_materialUi.RaisedButton, { className: 'margin-right', primary: true, href: 'https://github.com/redswift', label: 'Github' }),
-	            _react2.default.createElement(_materialUi.RaisedButton, { className: 'margin-right', primary: true, href: 'https://sg.linkedin.com/in/lam-jian-xiong-dominic-4b33b4bb', label: 'LinkedIn' }),
+	            _react2.default.createElement(_materialUi.RaisedButton, { className: 'margin-right', primary: true, href: 'https://www.linkedin.com/in/lam-jian-xiong-dominic', label: 'LinkedIn' }),
 	            _react2.default.createElement(_materialUi.RaisedButton, { secondary: true, label: 'GA Profile' })
 	          )
 	        )
@@ -37932,7 +37945,7 @@
 	        className: 'flex',
 	        iconElementRight: _react2.default.createElement(
 	          'div',
-	          null,
+	          { className: 'button-group' },
 	          _react2.default.createElement(
 	            _reactRouter.Link,
 	            { to: '/' },
@@ -67783,6 +67796,8 @@
 
 	var _portfolio_details2 = _interopRequireDefault(_portfolio_details);
 
+	var _materialUi = __webpack_require__(498);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -67809,7 +67824,11 @@
 	    key: 'renderProjects',
 	    value: function renderProjects() {
 	      return this.props.project.map(function (project, index) {
-	        return _react2.default.createElement(_portfolio_details2.default, { key: index, project: project });
+	        return _react2.default.createElement(
+	          'div',
+	          { className: 'work-cont' },
+	          _react2.default.createElement(_portfolio_details2.default, { key: index, project: project })
+	        );
 	      });
 	    }
 	  }, {
@@ -67871,7 +67890,7 @@
 	      _react2.default.createElement(
 	        'h2',
 	        null,
-	        'Description'
+	        project.name
 	      ),
 	      _react2.default.createElement(
 	        'p',
@@ -67921,22 +67940,32 @@
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'about-cont' },
-	      _react2.default.createElement('img', { className: 'about-pic', src: 'http://oi66.tinypic.com/2dtt8p5.jpg' }),
+	      _react2.default.createElement('img', { src: 'http://oi66.tinypic.com/2dtt8p5.jpg' }),
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'margin-left' },
 	        _react2.default.createElement(
 	          'h2',
-	          null,
-	          'About Me'
+	          { className: 'text-center' },
+	          _react2.default.createElement(
+	            'u',
+	            null,
+	            'About Me'
+	          )
 	        ),
 	        _react2.default.createElement(
 	          'p',
 	          null,
-	          'Graduating from the Web Developer Immersive course from General Assembly'
+	          'Dominic began his pursuit of being a full-stack web developer by completing a three month bootcamp dubbed Web Development Immersive by General Assembly.'
+	        ),
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          'Passionate about using technology to improve quality of life, Dominic has been spending his time developing personal projects while actively seeking a company to contribute to.'
 	        )
 	      )
 	    ),
+	    _react2.default.createElement('br', null),
 	    _react2.default.createElement('hr', null),
 	    _react2.default.createElement(
 	      'h2',
@@ -68071,7 +68100,7 @@
 	        _react2.default.createElement(
 	          'td',
 	          null,
-	          'RoR'
+	          'Ruby on Rails'
 	        )
 	      ),
 	      _react2.default.createElement(
@@ -68124,21 +68153,96 @@
 	  value: true
 	});
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	var _react = __webpack_require__(2);
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _index = __webpack_require__(208);
+
+	var _reactRedux = __webpack_require__(176);
+
+	var _reactRouter = __webpack_require__(231);
+
+	var _app_bar = __webpack_require__(452);
+
+	var _app_bar2 = _interopRequireDefault(_app_bar);
+
+	var _materialUi = __webpack_require__(498);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var WorkDetails = function WorkDetails() {
-	  return _react2.default.createElement(
-	    'div',
-	    null,
-	    'Work Details'
-	  );
-	};
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	exports.default = WorkDetails;
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var WorkDetails = function (_Component) {
+	  _inherits(WorkDetails, _Component);
+
+	  function WorkDetails() {
+	    _classCallCheck(this, WorkDetails);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(WorkDetails).apply(this, arguments));
+	  }
+
+	  _createClass(WorkDetails, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      this.props.showProject(this.props.params.id);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var project = this.props.project;
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(_app_bar2.default, null),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'work-cont' },
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: '/work' },
+	            _react2.default.createElement(_materialUi.RaisedButton, { secondary: true, label: 'Back' })
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'port-cont' },
+	            _react2.default.createElement('img', { src: project.picture }),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'margin-left' },
+	              _react2.default.createElement(
+	                'h2',
+	                null,
+	                'Description'
+	              ),
+	              _react2.default.createElement(
+	                'p',
+	                null,
+	                project.description
+	              ),
+	              _react2.default.createElement(_materialUi.RaisedButton, { primary: true, label: 'Demo', href: project.demo }),
+	              _react2.default.createElement(_materialUi.RaisedButton, { className: 'margin-left', primary: true, label: 'Github', href: project.github })
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return WorkDetails;
+	}(_react.Component);
+
+	function mapStateToProps(state) {
+	  return { project: state.project.show };
+	}
+
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, { showProject: _index.showProject })(WorkDetails);
 
 /***/ }
 /******/ ]);
