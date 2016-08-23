@@ -68044,7 +68044,7 @@
 	        null,
 	        _react2.default.createElement(
 	          'td',
-	          null,
+	          { className: 'collapse-column' },
 	          'Languages'
 	        ),
 	        _react2.default.createElement(
@@ -68066,7 +68066,7 @@
 	      _react2.default.createElement(
 	        'tr',
 	        { className: 'text-center' },
-	        _react2.default.createElement('td', null),
+	        _react2.default.createElement('td', { className: 'collapse-column' }),
 	        _react2.default.createElement(
 	          'td',
 	          null,
@@ -68088,7 +68088,7 @@
 	        null,
 	        _react2.default.createElement(
 	          'td',
-	          null,
+	          { className: 'collapse-column' },
 	          'Frameworks'
 	        ),
 	        _react2.default.createElement(
@@ -68115,7 +68115,7 @@
 	      _react2.default.createElement(
 	        'tr',
 	        { className: 'text-center' },
-	        _react2.default.createElement('td', null),
+	        _react2.default.createElement('td', { className: 'collapse-column' }),
 	        _react2.default.createElement(
 	          'td',
 	          null,
@@ -68142,7 +68142,7 @@
 	        null,
 	        _react2.default.createElement(
 	          'td',
-	          null,
+	          { className: 'collapse-column' },
 	          'Data'
 	        ),
 	        _react2.default.createElement(
@@ -68159,7 +68159,7 @@
 	      _react2.default.createElement(
 	        'tr',
 	        { className: 'text-center' },
-	        _react2.default.createElement('td', null),
+	        _react2.default.createElement('td', { className: 'collapse-column' }),
 	        _react2.default.createElement(
 	          'td',
 	          null,
@@ -68376,7 +68376,7 @@
 	        _react2.default.createElement(_app_bar2.default, { pageName: 'Contact' }),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'work-cont' },
+	          { className: 'work-cont padding-left' },
 	          _react2.default.createElement(
 	            'p',
 	            null,

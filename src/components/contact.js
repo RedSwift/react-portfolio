@@ -42,7 +42,7 @@ class Contact extends Component {
     return (
       <div>
         <AppBar pageName='Contact'/>
-        <div className='work-cont'>
+        <div className='work-cont padding-left'>
           <p>Looking for me?</p>
           <p>You can drop me an email at jxdlam@gmail.com or use the form below!</p>
           <form className='contact-cont'>
