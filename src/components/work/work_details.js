@@ -14,7 +14,7 @@ class WorkDetails extends Component {
     const project = this.props.project
     return (
       <div>
-        <AppBar />
+        <AppBar pageName={project.name}/>
         <div className='work-cont'>
           <Link to='/work'><RaisedButton secondary label='Back' /></Link>
           <div className='port-cont'>

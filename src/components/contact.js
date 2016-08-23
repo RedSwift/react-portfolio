@@ -41,7 +41,7 @@ class Contact extends Component {
     }
     return (
       <div>
-        <AppBar />
+        <AppBar pageName='Contact'/>
         <div className='work-cont'>
           <p>Looking for me?</p>
           <p>You can drop me an email at jxdlam@gmail.com or use the form below!</p>

@@ -6,7 +6,7 @@ import { RaisedButton } from 'material-ui'
 const ContactSuccess = () => {
   return (
     <div>
-      <AppBar />
+      <AppBar pageName='Contact'/>
       <div className='work-cont'>
         <Link to='/'><RaisedButton primary label='Home' /></Link>
         <h1>Your details has been received!</h1>

@@ -5,7 +5,7 @@ import Skills from './skills'
 const About = () => {
   return (
     <div>
-      <AppBar />
+      <AppBar pageName='About'/>
       <div className='about-cont'>
         <img src={'http://oi66.tinypic.com/2dtt8p5.jpg'} />
         <div className='margin-left'>

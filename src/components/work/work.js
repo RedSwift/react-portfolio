@@ -22,8 +22,7 @@ class Work extends Component {
   render () {
     return (
       <div>
-        <AppBar />
-        <h1 className='text-center'>Portfolio</h1>
+        <AppBar pageName='Portfolio'/>
         {this.renderProjects()}
       </div>
     )
