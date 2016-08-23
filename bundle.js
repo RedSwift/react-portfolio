@@ -23926,7 +23926,7 @@
 	var SHOW_PROJECT = exports.SHOW_PROJECT = 'SHOW_PROJECT';
 
 	function fetchProject() {
-	  var request = _axios2.default.get('http://redswift.herokuapp.com/api/project');
+	  var request = _axios2.default.get('https://redswift.herokuapp.com/api/project');
 
 	  return {
 	    type: FETCH_PROJECT,
@@ -23935,7 +23935,7 @@
 	}
 
 	function showProject(id) {
-	  var request = _axios2.default.get('http://redswift.herokuapp.com/api/project/' + id);
+	  var request = _axios2.default.get('https://redswift.herokuapp.com/api/project/' + id);
 
 	  return {
 	    type: SHOW_PROJECT,
@@ -68341,7 +68341,7 @@
 	      this.setState({ loading: true });
 	      (0, _axios2.default)({
 	        method: 'post',
-	        url: 'http://redswift.herokuapp.com/api/contact',
+	        url: 'https://redswift.herokuapp.com/api/contact',
 	        data: {
 	          name: this.state.name,
 	          email: this.state.email,
