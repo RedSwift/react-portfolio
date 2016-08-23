@@ -23912,9 +23912,10 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.SHOW_PROJECT = exports.FETCH_PROJECT = undefined;
+	exports.POST_FORM = exports.SHOW_PROJECT = exports.FETCH_PROJECT = undefined;
 	exports.fetchProject = fetchProject;
 	exports.showProject = showProject;
+	exports.postForm = postForm;
 
 	var _axios = __webpack_require__(209);
 
@@ -23924,6 +23925,7 @@
 
 	var FETCH_PROJECT = exports.FETCH_PROJECT = 'FETCH_PROJECT';
 	var SHOW_PROJECT = exports.SHOW_PROJECT = 'SHOW_PROJECT';
+	var POST_FORM = exports.POST_FORM = 'POST_FORM';
 
 	function fetchProject() {
 	  var request = _axios2.default.get('http://redswift.herokuapp.com/api/project');
@@ -23940,6 +23942,23 @@
 	  return {
 	    type: SHOW_PROJECT,
 	    payload: request
+	  };
+	}
+
+	function postForm(inputName, inputEmail, inputContent) {
+	  var post = (0, _axios2.default)({
+	    method: 'post',
+	    url: 'http://redswift.herokuapp.com/api/contact',
+	    data: {
+	      name: inputName,
+	      email: inputEmail,
+	      content: inputContent
+	    }
+	  });
+
+	  return {
+	    type: POST_FORM,
+	    payload: post
 	  };
 	}
 
@@ -30820,6 +30839,14 @@
 
 	var _work_details2 = _interopRequireDefault(_work_details);
 
+	var _contact = __webpack_require__(657);
+
+	var _contact2 = _interopRequireDefault(_contact);
+
+	var _contact_success = __webpack_require__(658);
+
+	var _contact_success2 = _interopRequireDefault(_contact_success);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = _react2.default.createElement(
@@ -30828,7 +30855,9 @@
 	  _react2.default.createElement(_reactRouter.IndexRoute, { component: _home2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: '/work', component: _work2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: '/about', component: _about2.default }),
-	  _react2.default.createElement(_reactRouter.Route, { path: '/work/:id', component: _work_details2.default })
+	  _react2.default.createElement(_reactRouter.Route, { path: '/work/:id', component: _work_details2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: '/contact', component: _contact2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: '/contact/success', component: _contact_success2.default })
 	);
 
 /***/ },
@@ -67796,8 +67825,6 @@
 
 	var _portfolio_details2 = _interopRequireDefault(_portfolio_details);
 
-	var _materialUi = __webpack_require__(498);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -67823,18 +67850,11 @@
 	  }, {
 	    key: 'renderProjects',
 	    value: function renderProjects() {
-	      if (!this.props.project) return _react2.default.createElement(
-	        'div',
-	        null,
-	        ' Loading ',
-	        _react2.default.createElement(_materialUi.CircularProgress, { size: 2 }),
-	        ' '
-	      );
 	      return this.props.project.map(function (project, index) {
 	        return _react2.default.createElement(
 	          'div',
-	          { className: 'work-cont' },
-	          _react2.default.createElement(_portfolio_details2.default, { key: index, project: project })
+	          { key: index, className: 'work-cont' },
+	          _react2.default.createElement(_portfolio_details2.default, { project: project })
 	        );
 	      });
 	    }
@@ -68250,6 +68270,195 @@
 	}
 
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, { showProject: _index.showProject })(WorkDetails);
+
+/***/ },
+/* 657 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _app_bar = __webpack_require__(452);
+
+	var _app_bar2 = _interopRequireDefault(_app_bar);
+
+	var _materialUi = __webpack_require__(498);
+
+	var _reactRedux = __webpack_require__(176);
+
+	var _index = __webpack_require__(208);
+
+	var _reactRouter = __webpack_require__(231);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Contact = function (_Component) {
+	  _inherits(Contact, _Component);
+
+	  function Contact(props) {
+	    _classCallCheck(this, Contact);
+
+	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Contact).call(this, props));
+
+	    _this.state = { name: '', email: '', content: '' };
+	    return _this;
+	  }
+
+	  _createClass(Contact, [{
+	    key: 'submitForm',
+	    value: function submitForm() {
+	      event.preventDefault();
+	      (0, _index.postForm)(this.state.name, this.state.email, this.state.content);
+	      _reactRouter.browserHistory.push('/contact/success');
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
+
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(_app_bar2.default, null),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'work-cont' },
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'Looking for me?'
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            null,
+	            'You can drop me an email at jxdlam@gmail.com or use the form below!'
+	          ),
+	          _react2.default.createElement(
+	            'form',
+	            { className: 'contact-cont' },
+	            _react2.default.createElement(_materialUi.TextField, {
+	              id: 'name',
+	              floatingLabelText: 'Name',
+	              hintText: 'Your name please',
+	              value: this.state.name,
+	              onChange: function onChange(event) {
+	                return _this2.onNameChange(event.target.value);
+	              }
+	            }),
+	            _react2.default.createElement(_materialUi.TextField, {
+	              id: 'email',
+	              floatingLabelText: 'Email/Number',
+	              hintText: 'How do i contact you?',
+	              value: this.state.email,
+	              onChange: function onChange(event) {
+	                return _this2.onEmailChange(event.target.value);
+	              }
+	            }),
+	            _react2.default.createElement(_materialUi.TextField, {
+	              id: 'content',
+	              floatingLabelText: 'Content',
+	              multiLine: true,
+	              rows: 3,
+	              hintText: 'What can i do for you?',
+	              value: this.state.content,
+	              onChange: function onChange(event) {
+	                return _this2.onContentChange(event.target.value);
+	              }
+	            })
+	          ),
+	          _react2.default.createElement(_materialUi.RaisedButton, { primary: true, label: 'Submit', onClick: this.submitForm.bind(this) })
+	        )
+	      );
+	    }
+	  }, {
+	    key: 'onNameChange',
+	    value: function onNameChange(name) {
+	      this.setState({ name: name });
+	    }
+	  }, {
+	    key: 'onEmailChange',
+	    value: function onEmailChange(email) {
+	      this.setState({ email: email });
+	    }
+	  }, {
+	    key: 'onContentChange',
+	    value: function onContentChange(content) {
+	      this.setState({ content: content });
+	    }
+	  }]);
+
+	  return Contact;
+	}(_react.Component);
+
+	exports.default = (0, _reactRedux.connect)(null, { postForm: _index.postForm })(Contact);
+
+/***/ },
+/* 658 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _app_bar = __webpack_require__(452);
+
+	var _app_bar2 = _interopRequireDefault(_app_bar);
+
+	var _reactRouter = __webpack_require__(231);
+
+	var _materialUi = __webpack_require__(498);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var ContactSuccess = function ContactSuccess() {
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(_app_bar2.default, null),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'work-cont' },
+	      _react2.default.createElement(
+	        _reactRouter.Link,
+	        { to: '/' },
+	        _react2.default.createElement(_materialUi.RaisedButton, { primary: true, label: 'Home' })
+	      ),
+	      _react2.default.createElement(
+	        'h1',
+	        null,
+	        'Your details has been received!'
+	      ),
+	      _react2.default.createElement(
+	        'h3',
+	        null,
+	        'I will contact you within the next 48 hours regarding your email. Thanks!'
+	      )
+	    )
+	  );
+	};
+
+	exports.default = ContactSuccess;
 
 /***/ }
 /******/ ]);

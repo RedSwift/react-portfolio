@@ -20,6 +20,11 @@ html, body {
 
 /* Selectors */
 
+.contact-cont {
+  display: flex;
+  flex-direction: column;
+}
+
 .work-cont {
   margin: 0 auto;
   max-width: 50em

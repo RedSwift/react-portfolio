@@ -5,6 +5,8 @@ import Home from './components/home'
 import Work from './components/work/work'
 import About from './components/about/about'
 import WorkDetails from './components/work/work_details'
+import Contact from './components/contact'
+import ContactSuccess from './components/contact_success'
 
 export default (
   <Route path='/' component={App}>
@@ -12,5 +14,7 @@ export default (
     <Route path='/work' component={Work} />
     <Route path='/about' component={About} />
     <Route path='/work/:id' component={WorkDetails} />
+    <Route path='/contact' component={Contact} />
+    <Route path='/contact/success' component={ContactSuccess} />
   </Route>
 )
