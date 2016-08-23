@@ -17,7 +17,7 @@ class Contact extends Component {
     this.setState({loading: true})
     axios({
       method: 'post',
-      url: 'http://redswift.herokuapp.com/api/contact',
+      url: 'https://redswift.herokuapp.com/api/contact',
       data: {
         name: this.state.name,
         email: this.state.email,

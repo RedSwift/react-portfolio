@@ -4,7 +4,7 @@ export const FETCH_PROJECT = 'FETCH_PROJECT'
 export const SHOW_PROJECT = 'SHOW_PROJECT'
 
 export function fetchProject () {
-  const request = axios.get('http://redswift.herokuapp.com/api/project')
+  const request = axios.get('https://redswift.herokuapp.com/api/project')
 
   return {
     type: FETCH_PROJECT,
@@ -13,7 +13,7 @@ export function fetchProject () {
 }
 
 export function showProject (id) {
-  const request = axios.get(`http://redswift.herokuapp.com/api/project/${id}`)
+  const request = axios.get(`https://redswift.herokuapp.com/api/project/${id}`)
 
   return {
     type: SHOW_PROJECT,
