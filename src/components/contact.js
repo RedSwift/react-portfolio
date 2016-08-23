@@ -9,7 +9,7 @@ class Contact extends Component {
   constructor (props) {
     super(props)
 
-    this.state = { name: '', email: '', content: ''}
+    this.state = { name: '', email: '', content: '' }
   }
 
   submitForm () {

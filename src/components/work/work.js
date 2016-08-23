@@ -30,6 +30,11 @@ class Work extends Component {
   }
 }
 
+Work.propTypes = {
+  fetchProject: React.PropTypes.func,
+  project: React.PropTypes.array
+}
+
 function mapStateToProps (state) {
   return { project: state.project.all }
 }

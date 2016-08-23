@@ -32,6 +32,12 @@ class WorkDetails extends Component {
   }
 }
 
+WorkDetails.propTypes = {
+  params: React.PropTypes.string,
+  showProject: React.PropTypes.func,
+  project: React.PropTypes.array
+}
+
 function mapStateToProps (state) {
   return { project: state.project.show }
 }

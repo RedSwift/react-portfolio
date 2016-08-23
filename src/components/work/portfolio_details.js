@@ -17,4 +17,8 @@ const PortfolioDetails = (props) => {
   )
 }
 
+PortfolioDetails.propTypes = {
+  project: React.PropTypes.array
+}
+
 export default PortfolioDetails
