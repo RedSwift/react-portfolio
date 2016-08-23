@@ -98,4 +98,9 @@ td {
     height: 213px;
     width: 319px;
   }
+  .port-cont {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+  }
 }
