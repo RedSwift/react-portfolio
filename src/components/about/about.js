@@ -7,7 +7,7 @@ const About = () => {
     <div>
       <AppBar pageName='About'/>
       <div className='about-cont'>
-        <img src={'http://i65.tinypic.com/27zb0c7.jpg'} />
+        <img src={'http://i68.tinypic.com/2cn6ue8.jpg'} />
         <div className='margin-left'>
           <h2 className='text-center'><u>About Me</u></h2>
           <p>

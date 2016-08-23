@@ -1,8 +1,6 @@
 html, body {
   margin: 0;
   font-family: Roboto;
-  background-color: #008FA1;
-  color: white;
 }
 
 /* Reusable CSS */
@@ -23,6 +21,10 @@ html, body {
 }
 
 /* Selectors */
+
+.proj-pic {
+  border: 1px solid black;
+}
 
 .loader {
   display: flex;

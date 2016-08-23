@@ -18,7 +18,7 @@ class WorkDetails extends Component {
         <div className='work-cont'>
           <Link to='/work'><RaisedButton secondary label='Back' /></Link>
           <div className='port-cont'>
-            <img src={project.picture} />
+            <img className='proj-pic' src={project.picture} />
             <div className='margin-left'>
               <h2>Description</h2>
               <p>{project.description}</p>

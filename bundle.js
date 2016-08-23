@@ -67913,7 +67913,7 @@
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'port-cont padding-left' },
-	    _react2.default.createElement('img', { className: 'port-pic', src: project.picture, alt: 'portfolio pic' }),
+	    _react2.default.createElement('img', { className: 'proj-pic', src: project.picture, alt: 'portfolio pic' }),
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'margin-left' },
@@ -67974,7 +67974,7 @@
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'about-cont' },
-	      _react2.default.createElement('img', { src: 'http://i65.tinypic.com/27zb0c7.jpg' }),
+	      _react2.default.createElement('img', { src: 'http://i68.tinypic.com/2cn6ue8.jpg' }),
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'margin-left' },
@@ -68246,7 +68246,7 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'port-cont' },
-	            _react2.default.createElement('img', { src: project.picture }),
+	            _react2.default.createElement('img', { className: 'proj-pic', src: project.picture }),
 	            _react2.default.createElement(
 	              'div',
 	              { className: 'margin-left' },
