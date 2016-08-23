@@ -37881,7 +37881,7 @@
 	            { className: 'my-name' },
 	            'Dominic Lam'
 	          ),
-	          _react2.default.createElement('img', { className: 'front-p', src: 'http://oi64.tinypic.com/1ta3jn.jpg' }),
+	          _react2.default.createElement('img', { className: 'front-p', src: 'http://i65.tinypic.com/27zb0c7.jpg' }),
 	          _react2.default.createElement(
 	            'h3',
 	            null,
@@ -67912,7 +67912,7 @@
 
 	  return _react2.default.createElement(
 	    'div',
-	    { className: 'port-cont' },
+	    { className: 'port-cont padding-left' },
 	    _react2.default.createElement('img', { className: 'port-pic', src: project.picture, alt: 'portfolio pic' }),
 	    _react2.default.createElement(
 	      'div',
@@ -67974,7 +67974,7 @@
 	    _react2.default.createElement(
 	      'div',
 	      { className: 'about-cont' },
-	      _react2.default.createElement('img', { src: 'http://oi66.tinypic.com/2dtt8p5.jpg' }),
+	      _react2.default.createElement('img', { src: 'http://i65.tinypic.com/27zb0c7.jpg' }),
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'margin-left' },

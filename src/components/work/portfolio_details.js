@@ -6,7 +6,7 @@ const PortfolioDetails = (props) => {
   const project = props.project
 
   return (
-    <div className='port-cont'>
+    <div className='port-cont padding-left'>
       <img className='port-pic' src={project.picture} alt='portfolio pic' />
       <div className='margin-left'>
         <h2>{project.name}</h2>
