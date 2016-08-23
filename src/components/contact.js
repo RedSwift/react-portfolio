@@ -1,24 +1,44 @@
 import React, { Component } from 'react'
 import AppBar from './app_bar'
 import { TextField, RaisedButton } from 'material-ui'
-import { connect } from 'react-redux'
-import { postForm } from '../actions/index'
 import { browserHistory } from 'react-router'
+import axios from 'axios'
+import { CircularProgress } from 'material-ui'
 
 class Contact extends Component {
   constructor (props) {
     super(props)
 
-    this.state = { name: '', email: '', content: '' }
+    this.state = { name: '', email: '', content: '', loading: false }
   }
 
   submitForm () {
     event.preventDefault()
-    postForm(this.state.name, this.state.email, this.state.content)
-    browserHistory.push('/contact/success')
+    this.setState({loading: true})
+    axios({
+      method: 'post',
+      url: 'http://redswift.herokuapp.com/api/contact',
+      data: {
+        name: this.state.name,
+        email: this.state.email,
+        content: this.state.content
+      }
+    }).then(() => {
+      this.setState({loading: false})
+      browserHistory.push('/contact/success')
+    })
   }
 
   render () {
+    if (this.state.loading) {
+      return (
+        <div className='loader'>
+          <CircularProgress size={2} />
+          <br />
+          <h3>Feeding the server hamsters...</h3>
+        </div>
+      )
+    }
     return (
       <div>
         <AppBar />
@@ -66,4 +86,4 @@ class Contact extends Component {
   }
 }
 
-export default connect(null, {postForm})(Contact)
+export default Contact

@@ -35,7 +35,7 @@ class WorkDetails extends Component {
 WorkDetails.propTypes = {
   params: React.PropTypes.string,
   showProject: React.PropTypes.func,
-  project: React.PropTypes.array
+  project: React.PropTypes.object
 }
 
 function mapStateToProps (state) {

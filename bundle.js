@@ -23912,10 +23912,9 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.POST_FORM = exports.SHOW_PROJECT = exports.FETCH_PROJECT = undefined;
+	exports.SHOW_PROJECT = exports.FETCH_PROJECT = undefined;
 	exports.fetchProject = fetchProject;
 	exports.showProject = showProject;
-	exports.postForm = postForm;
 
 	var _axios = __webpack_require__(209);
 
@@ -23925,7 +23924,6 @@
 
 	var FETCH_PROJECT = exports.FETCH_PROJECT = 'FETCH_PROJECT';
 	var SHOW_PROJECT = exports.SHOW_PROJECT = 'SHOW_PROJECT';
-	var POST_FORM = exports.POST_FORM = 'POST_FORM';
 
 	function fetchProject() {
 	  var request = _axios2.default.get('http://redswift.herokuapp.com/api/project');
@@ -23942,23 +23940,6 @@
 	  return {
 	    type: SHOW_PROJECT,
 	    payload: request
-	  };
-	}
-
-	function postForm(inputName, inputEmail, inputContent) {
-	  var post = (0, _axios2.default)({
-	    method: 'post',
-	    url: 'http://redswift.herokuapp.com/api/contact',
-	    data: {
-	      name: inputName,
-	      email: inputEmail,
-	      content: inputContent
-	    }
-	  });
-
-	  return {
-	    type: POST_FORM,
-	    payload: post
 	  };
 	}
 
@@ -67878,6 +67859,11 @@
 	  return Work;
 	}(_react.Component);
 
+	Work.propTypes = {
+	  fetchProject: _react2.default.PropTypes.func,
+	  project: _react2.default.PropTypes.array
+	};
+
 	function mapStateToProps(state) {
 	  return { project: state.project.all };
 	}
@@ -67931,6 +67917,10 @@
 	      )
 	    )
 	  );
+	};
+
+	PortfolioDetails.propTypes = {
+	  project: _react2.default.PropTypes.object
 	};
 
 	exports.default = PortfolioDetails;
@@ -68265,6 +68255,12 @@
 	  return WorkDetails;
 	}(_react.Component);
 
+	WorkDetails.propTypes = {
+	  params: _react2.default.PropTypes.string,
+	  showProject: _react2.default.PropTypes.func,
+	  project: _react2.default.PropTypes.object
+	};
+
 	function mapStateToProps(state) {
 	  return { project: state.project.show };
 	}
@@ -68293,11 +68289,11 @@
 
 	var _materialUi = __webpack_require__(498);
 
-	var _reactRedux = __webpack_require__(176);
-
-	var _index = __webpack_require__(208);
-
 	var _reactRouter = __webpack_require__(231);
+
+	var _axios = __webpack_require__(209);
+
+	var _axios2 = _interopRequireDefault(_axios);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -68315,22 +68311,48 @@
 
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Contact).call(this, props));
 
-	    _this.state = { name: '', email: '', content: '' };
+	    _this.state = { name: '', email: '', content: '', loading: false };
 	    return _this;
 	  }
 
 	  _createClass(Contact, [{
 	    key: 'submitForm',
 	    value: function submitForm() {
+	      var _this2 = this;
+
 	      event.preventDefault();
-	      (0, _index.postForm)(this.state.name, this.state.email, this.state.content);
-	      _reactRouter.browserHistory.push('/contact/success');
+	      this.setState({ loading: true });
+	      (0, _axios2.default)({
+	        method: 'post',
+	        url: 'http://redswift.herokuapp.com/api/contact',
+	        data: {
+	          name: this.state.name,
+	          email: this.state.email,
+	          content: this.state.content
+	        }
+	      }).then(function () {
+	        _this2.setState({ loading: false });
+	        _reactRouter.browserHistory.push('/contact/success');
+	      });
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _this2 = this;
+	      var _this3 = this;
 
+	      if (this.state.loading) {
+	        return _react2.default.createElement(
+	          'div',
+	          { className: 'loader' },
+	          _react2.default.createElement(_materialUi.CircularProgress, { size: 2 }),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(
+	            'h3',
+	            null,
+	            'Feeding the server hamsters...'
+	          )
+	        );
+	      }
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -68357,7 +68379,7 @@
 	              hintText: 'Your name please',
 	              value: this.state.name,
 	              onChange: function onChange(event) {
-	                return _this2.onNameChange(event.target.value);
+	                return _this3.onNameChange(event.target.value);
 	              }
 	            }),
 	            _react2.default.createElement(_materialUi.TextField, {
@@ -68366,7 +68388,7 @@
 	              hintText: 'How do i contact you?',
 	              value: this.state.email,
 	              onChange: function onChange(event) {
-	                return _this2.onEmailChange(event.target.value);
+	                return _this3.onEmailChange(event.target.value);
 	              }
 	            }),
 	            _react2.default.createElement(_materialUi.TextField, {
@@ -68377,7 +68399,7 @@
 	              hintText: 'What can i do for you?',
 	              value: this.state.content,
 	              onChange: function onChange(event) {
-	                return _this2.onContentChange(event.target.value);
+	                return _this3.onContentChange(event.target.value);
 	              }
 	            })
 	          ),
@@ -68405,7 +68427,7 @@
 	  return Contact;
 	}(_react.Component);
 
-	exports.default = (0, _reactRedux.connect)(null, { postForm: _index.postForm })(Contact);
+	exports.default = Contact;
 
 /***/ },
 /* 658 */

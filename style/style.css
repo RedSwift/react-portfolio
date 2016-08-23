@@ -20,6 +20,13 @@ html, body {
 
 /* Selectors */
 
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 150px;
+}
+
 .contact-cont {
   display: flex;
   flex-direction: column;
